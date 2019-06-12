@@ -4,7 +4,7 @@ Checking commit messages happens locally on your machine, not after it has been 
 
 To set this up, you will need to do the following:
 
-1. Run the batch file in this folder `setup.bat`. This will:
+1. Run the Powershell file in this folder `setup.ps1`. This will:
    1. Create a folder called `.githooks` in your user directory (`C:\Users\<username>`) and copy the global hook scripts there.
    2. Configure git on your machine to use this new folder to find global hooks.
 2. Each time you create a repository that requires commit checks:
