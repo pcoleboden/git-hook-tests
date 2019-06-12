@@ -6,7 +6,7 @@ REM Make the directory to store the hooks scripts - C:\Users\<username>\.githook
 mkdir "%HOOKDIR%"
 
 REM Configure Git to use the new directory as its global source of hooks
-git config --global core.hooksPath '~/.githooks'
+git config --global core.hooksPath '~/.githooks/'
 
 REM Create a git alias to copy the ini file to the repo directory
 git config --global alias.jirahook "!mkdir 'git-hooks' | cp ~/.githooks/jira-validation.ini git-hooks"
