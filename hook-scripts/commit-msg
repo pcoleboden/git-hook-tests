@@ -3,10 +3,23 @@
 # load config settings#
 # We don't know if we are in bash or powershell etc so cant rely on jq/Newtonsoft
 # Use a .ini rather than JSON so we can cheat and source vars in VAR=val format
-. $PWD/git-hooks/git-hook.ini
+CONFIGPATH="$PWD/git-hooks/jira-validation.ini"
 
-# get first line of commit message
-msg="EXS-95 test"
+ # no config file, do not continue
+if [ ! -f $CONFIGPATH ]; then exit 0; fi
+
+. $CONFIGPATH
+
+echo "### JIRA Validation ###";
+
+if [ "$JiraProjectCode" == "" ]; then {
+	echo "No JiraProjectCode set - Jira  validation skipped";
+	exit 0;
+};
+fi
+
+# read entire or first line of commit message
+#msg="EXS-95 test"
 if [ -n "$1" ]; then {
 	if [ "$CheckFullMessage" = true ]; then msg=$(cat $1); else msg=$(head -1 $1); fi
 };
@@ -16,13 +29,13 @@ fi
 regex="${JiraProjectCode}\-[0-9]+"
 
 echo "Jira project code is $JiraProjectCode"
-if [ "$CheckFullMessage" = true ]; then echo "Validating full commit message"; else echo "Validating 1st commit line \"$msg\""; fi
+if [ "$CheckFullMessage" == true ]; then echo "Validating full commit message"; else echo "Validating 1st commit line \"$msg\""; fi
 
 if [[ ! $msg =~ $regex ]]; then {
 	echo "Issue number not included in commit message!";
 	exit 1;
 };
 else {
-    echo "Commit message is Gooood"
+    echo "Commit message is Gooood";
 }
 fi

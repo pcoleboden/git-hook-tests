@@ -1,2 +1,0 @@
-copy "hook-scripts\*" "../.git/hooks"
-pause
