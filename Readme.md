@@ -1,6 +1,6 @@
 # Setting up commit message validation #
 
-Checking commit messages happens locally on your machine, not after it has been pushed to GitHub.
+Checking commit messages happens locally on your machine, not after it has been pushed to GitHub. There is some manual work to do when you start a new repository.
 
 To set this up, you will need to do the following:
 
