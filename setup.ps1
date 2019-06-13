@@ -15,7 +15,7 @@ mkdir "$HOOKDIR"
 git config --global core.hooksPath "$HOOKDIRBASH"
 
 # Create a git alias to copy the ini file to the repo directory
-git config --global alias.jirahook "!mkdir 'git-hooks' | cp ~/.githooks/jira-validation.ini git-hooks"
+git config --global alias.jirahook "!mkdir '.githooks' | cp ~/.githooks/jira-validation.ini .githooks/jira-validation.ini"
 
 # Copy the scripts to the global hook directory
 Copy-Item "hook-scripts\*" "$HOOKDIR"

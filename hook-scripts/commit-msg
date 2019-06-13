@@ -3,7 +3,7 @@
 # load config settings
 # We don't know if we are in bash or powershell etc so cant rely on jq/Newtonsoft
 # Use a .ini rather than JSON so we can cheat and source vars in VAR=val format
-CONFIGPATH="$PWD/git-hooks/jira-validation.ini"
+CONFIGPATH="$PWD/.githooks/jira-validation.ini"
 
  # no config file, do not continue
 if [ ! -f $CONFIGPATH ]; then exit 0; fi
