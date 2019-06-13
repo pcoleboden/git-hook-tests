@@ -1,7 +1,9 @@
 
 
 $HOOKDIR="$Env:USERPROFILE\.githooks"
-$HOOKDIRBASH=$HOOKDIR.replace("C:\", "/c/").replace("\", "/")
+# to find absolute path
+#$HOOKDIRBASH=$HOOKDIR.replace("C:\", "/c/").replace("\", "/")
+$HOOKDIRBASH="~/.githooks/"
 
 $HOOKDIR
 $HOOKDIRBASH
@@ -10,7 +12,7 @@ $HOOKDIRBASH
 mkdir "$HOOKDIR"
 
 # Configure Git to use the new directory as its global source of hooks
-git config --global core.hooksPath "$HOOKDIRBASH/"
+git config --global core.hooksPath "$HOOKDIRBASH"
 
 # Create a git alias to copy the ini file to the repo directory
 git config --global alias.jirahook "!mkdir 'git-hooks' | cp ~/.githooks/jira-validation.ini git-hooks"

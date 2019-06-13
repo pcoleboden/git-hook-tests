@@ -1,9 +1,6 @@
 #!/bin/sh
 
-echo "### JIRA Validation Test ###";
-exit 1;
-
-# load config settings#
+# load config settings
 # We don't know if we are in bash or powershell etc so cant rely on jq/Newtonsoft
 # Use a .ini rather than JSON so we can cheat and source vars in VAR=val format
 CONFIGPATH="$PWD/git-hooks/jira-validation.ini"
